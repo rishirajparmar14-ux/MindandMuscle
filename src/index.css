@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap');
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-green: #2dcc70;
+  --color-dark: #0e1012;
+  --color-off-white: #f0ede6;
+  --color-accent: #e8ff47;
+  --color-mid: #1c2025;
+  --color-muted: #7a8390;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased bg-dark text-off-white font-sans;
+}
+
+.rhetorical-badge {
+  @apply inline-block text-[0.62rem] font-bold tracking-[1.5px] uppercase px-2.5 py-1 rounded-[3px] ml-2.5 align-middle;
+}
+
+.badge-ethos { @apply bg-accent/15 text-accent; }
+.badge-pathos { @apply bg-rose-500/15 text-rose-400; }
+.badge-logos { @apply bg-green/15 text-green; }
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.noise {
+  position: relative;
+}
+
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.text-gradient-green {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-green to-accent;
+}
+
