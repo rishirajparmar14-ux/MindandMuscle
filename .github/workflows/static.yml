@@ -28,7 +28,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Change this if your site is in a subfolder
+          path: 'src' # Change this if your site is in a subfolder
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
