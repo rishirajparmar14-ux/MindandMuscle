@@ -8,6 +8,9 @@ export default function Footer() {
         <p className="text-[0.78rem] text-muted uppercase tracking-widest">
           Uses <strong className="text-accent">Ethos</strong> · <strong className="text-rose-400">Pathos</strong> · <strong className="text-green">Logos</strong> to persuade student audiences.
         </p>
+        <p className="text-[0.78rem] text-muted uppercase tracking-widest mt-4">
+          Need more resources? Check out <a href="https://www.activeminds.org/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Active Minds</a> for student wellness support.
+        </p>
         <div className="mt-8 pt-8 border-t border-white/5 text-[0.7rem] text-muted/50 uppercase tracking-[2px]">
           © 2026 Mind & Muscle. All rights reserved.
         </div>

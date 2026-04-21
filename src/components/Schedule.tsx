@@ -9,7 +9,9 @@ export default function Schedule() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <div className="text-green text-[0.7rem] font-bold tracking-[3px] uppercase mb-4">
+        <div className="text-green text-[0.7rem] font-bold tracking-[3px] uppercase mb-4 flex items-center gap-3">
+          <span className="text-accent/40 font-mono text-xs">04</span>
+          <span className="w-8 h-px bg-green" />
           Sample Schedule
         </div>
         <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-none mb-4 uppercase">
@@ -54,6 +56,8 @@ export default function Schedule() {
           </div>
         </div>
       </motion.div>
+
+
     </section>
   );
 }

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calculator as CalcIcon, RefreshCcw, Info, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Calculator as CalcIcon, RefreshCcw, Info, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function Calculator() {
   const [studyHours, setStudyHours] = useState(6);
   const [workoutHours, setWorkoutHours] = useState(2);
   const [showResult, setShowResult] = useState(false);
+  const [isCalculating, setIsCalculating] = useState(false);
 
   const calculateScore = () => {
     let studyScore = 0;
@@ -23,6 +24,15 @@ export default function Calculator() {
     else if (workoutHours === 0) workoutScore = 0;
 
     return studyScore + workoutScore;
+  };
+
+  const handleGenerateReport = () => {
+    setIsCalculating(true);
+    setShowResult(false);
+    setTimeout(() => {
+      setIsCalculating(false);
+      setShowResult(true);
+    }, 1500);
   };
 
   const getFeedback = (score: number) => {
@@ -54,6 +64,7 @@ export default function Calculator() {
               className="mb-12"
             >
               <div className="text-green text-[0.7rem] font-bold tracking-[4px] uppercase mb-4 flex items-center gap-3">
+                <span className="text-accent/40 font-mono text-xs">05</span>
                 <span className="w-8 h-px bg-green" />
                 Interactive Audit
               </div>
@@ -117,10 +128,20 @@ export default function Calculator() {
               </div>
 
               <button
-                onClick={() => setShowResult(true)}
-                className="group relative w-full bg-off-white text-dark py-6 rounded-2xl font-bold text-lg uppercase tracking-[3px] overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98]"
+                onClick={handleGenerateReport}
+                disabled={isCalculating}
+                className="group relative w-full bg-off-white text-dark py-6 rounded-2xl font-bold text-lg uppercase tracking-[3px] overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className="relative z-10">Generate My Audit Report</span>
+                <div className="relative z-10 flex items-center justify-center gap-3">
+                  {isCalculating ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Auditing...</span>
+                    </>
+                  ) : (
+                    <span>Generate My Audit Report</span>
+                  )}
+                </div>
                 <div className="absolute inset-0 bg-green translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </button>
             </div>
@@ -155,10 +176,35 @@ export default function Calculator() {
 
                   <div className="text-center md:text-left">
                     <div className={`inline-flex items-center gap-2 mb-4 ${feedback.color}`}>
-                      {feedback.icon}
-                      <h3 className="text-3xl font-display tracking-widest uppercase">{feedback.title}</h3>
+                      <motion.div
+                        initial={{ scale: 0, rotate: -45 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 260, 
+                          damping: 20,
+                          delay: 0.5 
+                        }}
+                      >
+                        {feedback.icon}
+                      </motion.div>
+                      <motion.h3 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.7, duration: 0.5 }}
+                        className="text-3xl font-display tracking-widest uppercase"
+                      >
+                        {feedback.title}
+                      </motion.h3>
                     </div>
-                    <p className="text-muted text-lg font-light leading-relaxed mb-8">{feedback.desc}</p>
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1, duration: 0.8 }}
+                      className="text-muted text-lg font-light leading-relaxed mb-8"
+                    >
+                      {feedback.desc}
+                    </motion.p>
                     <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                       <button
                         onClick={() => setShowResult(false)}

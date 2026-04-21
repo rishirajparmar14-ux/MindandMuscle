@@ -44,12 +44,12 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="flex flex-wrap gap-5"
         >
-          <a href="#calculator" className="group relative bg-green text-dark px-10 py-4 rounded-xl font-bold text-[0.95rem] uppercase tracking-widest overflow-hidden transition-all">
-            <span className="relative z-10">Check My Balance</span>
+          <a href="#calculator" className="group relative bg-green text-dark px-10 py-4 rounded-xl font-bold text-[0.95rem] uppercase tracking-widest overflow-hidden transition-all shadow-xl shadow-green/10">
+            <span className="relative z-10">Instant Audit</span>
             <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </a>
-          <a href="#story" className="glass text-off-white px-10 py-4 rounded-xl font-bold text-[0.95rem] uppercase tracking-widest hover:bg-white/10 transition-all">
-            The Reality
+          <a href="#story" className="glass text-off-white px-10 py-4 rounded-xl font-bold text-[0.95rem] uppercase tracking-widest hover:bg-white/10 transition-all border border-white/10">
+            Start Journey <span className="text-accent/50 font-mono ml-2">01</span>
           </a>
         </motion.div>
 

@@ -8,11 +8,11 @@ export default function Navbar() {
           Mind <span className="text-green group-hover:text-accent transition-colors">&</span> Muscle
         </div>
         
-        <ul className="hidden md:flex items-center gap-10 list-none">
-          <li><a href="#story" className="text-[0.7rem] font-bold tracking-[2px] text-muted uppercase hover:text-accent transition-colors">Story</a></li>
-          <li><a href="#stats" className="text-[0.7rem] font-bold tracking-[2px] text-muted uppercase hover:text-accent transition-colors">Research</a></li>
-          <li><a href="#tips" className="text-[0.7rem] font-bold tracking-[2px] text-muted uppercase hover:text-accent transition-colors">Habits</a></li>
-          <li><a href="#schedule" className="text-[0.7rem] font-bold tracking-[2px] text-muted uppercase hover:text-accent transition-colors">Routine</a></li>
+        <ul className="hidden md:flex items-center gap-8 list-none">
+          <li><a href="#story" className="group flex flex-col items-center"><span className="text-[0.6rem] text-accent/50 font-mono mb-1">01</span><span className="text-[0.65rem] font-bold tracking-[2px] text-muted uppercase group-hover:text-accent transition-colors">Story</span></a></li>
+          <li><a href="#stats" className="group flex flex-col items-center"><span className="text-[0.6rem] text-accent/50 font-mono mb-1">02</span><span className="text-[0.65rem] font-bold tracking-[2px] text-muted uppercase group-hover:text-accent transition-colors">Research</span></a></li>
+          <li><a href="#tips" className="group flex flex-col items-center"><span className="text-[0.6rem] text-accent/50 font-mono mb-1">03</span><span className="text-[0.65rem] font-bold tracking-[2px] text-muted uppercase group-hover:text-accent transition-colors">Habits</span></a></li>
+          <li><a href="#schedule" className="group flex flex-col items-center"><span className="text-[0.6rem] text-accent/50 font-mono mb-1">04</span><span className="text-[0.65rem] font-bold tracking-[2px] text-muted uppercase group-hover:text-accent transition-colors">Routine</span></a></li>
         </ul>
 
         <motion.a

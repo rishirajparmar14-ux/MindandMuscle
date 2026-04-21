@@ -17,6 +17,7 @@ export default function Story() {
           transition={{ duration: 0.8 }}
         >
           <div className="text-green text-[0.7rem] font-bold tracking-[4px] uppercase mb-6 flex items-center gap-3">
+            <span className="text-accent/40 font-mono text-xs">01</span>
             <span className="w-8 h-px bg-green" />
             The Student Struggle
           </div>
@@ -63,9 +64,11 @@ export default function Story() {
             </div>
           </div>
 
-          <p className="text-[1.1rem] leading-[1.8] text-muted font-light">
+          <p className="text-[1.1rem] leading-[1.8] text-muted font-light mb-12">
             Balance isn't about doing everything perfectly. It's about realizing that <span className="text-green font-medium italic">your brain is a part of your body</span>. When you move, you think better. When you rest, you learn faster.
           </p>
+
+
         </motion.div>
       </div>
     </section>

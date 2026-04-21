@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Book, Clock, Coffee, Dumbbell, Moon, Users } from 'lucide-react';
+import { TipSkeleton } from './ui/Skeleton';
 
 const BENTO_TIPS = [
   {
@@ -53,6 +55,13 @@ const BENTO_TIPS = [
 ];
 
 export default function Tips() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="tips" className="bg-dark px-4 md:px-16 py-32">
       <div className="max-w-7xl mx-auto">
@@ -63,6 +72,7 @@ export default function Tips() {
             viewport={{ once: true }}
           >
             <div className="text-green text-[0.7rem] font-bold tracking-[4px] uppercase mb-4 flex items-center gap-3">
+              <span className="text-accent/40 font-mono text-xs">03</span>
               <span className="w-8 h-px bg-green" />
               Strategic Blueprint
             </div>
@@ -81,32 +91,44 @@ export default function Tips() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {BENTO_TIPS.map((tip, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`glass p-8 rounded-[2rem] group hover:border-white/20 transition-all duration-500 ${tip.size}`}
-            >
-              <div className="flex justify-between items-start mb-8">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500 ${tip.color}`}>
-                  {tip.icon}
+          {isLoading ? (
+            <>
+              <div className="md:col-span-2"><TipSkeleton /></div>
+              <TipSkeleton />
+              <TipSkeleton />
+              <div className="md:col-span-2"><TipSkeleton /></div>
+              <TipSkeleton />
+              <div className="md:col-span-2"><TipSkeleton /></div>
+            </>
+          ) : (
+            BENTO_TIPS.map((tip, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className={`glass p-8 rounded-[2rem] group hover:border-white/20 transition-all duration-500 ${tip.size}`}
+              >
+                <div className="flex justify-between items-start mb-8">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500 ${tip.color}`}>
+                    {tip.icon}
+                  </div>
+                  <span className="text-[0.6rem] font-bold tracking-[2px] uppercase text-muted/50 border border-white/5 px-3 py-1 rounded-full">
+                    {tip.badge}
+                  </span>
                 </div>
-                <span className="text-[0.6rem] font-bold tracking-[2px] uppercase text-muted/50 border border-white/5 px-3 py-1 rounded-full">
-                  {tip.badge}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-off-white mb-3 group-hover:text-accent transition-colors">
-                {tip.title}
-              </h3>
-              <p className="text-sm text-muted leading-relaxed font-light">
-                {tip.desc}
-              </p>
-            </motion.div>
-          ))}
+                <h3 className="text-xl font-bold text-off-white mb-3 group-hover:text-accent transition-colors">
+                  {tip.title}
+                </h3>
+                <p className="text-sm text-muted leading-relaxed font-light">
+                  {tip.desc}
+                </p>
+              </motion.div>
+            ))
+          )}
         </div>
+
+
       </div>
     </section>
   );
