@@ -22,14 +22,6 @@ body {
   @apply antialiased bg-dark text-off-white font-sans;
 }
 
-.rhetorical-badge {
-  @apply inline-block text-[0.62rem] font-bold tracking-[1.5px] uppercase px-2.5 py-1 rounded-[3px] ml-2.5 align-middle;
-}
-
-.badge-ethos { @apply bg-accent/15 text-accent; }
-.badge-pathos { @apply bg-rose-500/15 text-rose-400; }
-.badge-logos { @apply bg-green/15 text-green; }
-
 .glass {
   @apply bg-white/5 backdrop-blur-xl border border-white/10;
 }

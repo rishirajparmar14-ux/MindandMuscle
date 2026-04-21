@@ -5,9 +5,6 @@ export default function Footer() {
         <p className="text-[0.78rem] text-muted mb-2 uppercase tracking-widest">
           Created for an English Multimodal Project &nbsp;|&nbsp; Topic: <span className="text-green">Balance Between Academics & Fitness</span>
         </p>
-        <p className="text-[0.78rem] text-muted uppercase tracking-widest">
-          Uses <strong className="text-accent">Ethos</strong> · <strong className="text-rose-400">Pathos</strong> · <strong className="text-green">Logos</strong> to persuade student audiences.
-        </p>
         <p className="text-[0.78rem] text-muted uppercase tracking-widest mt-4">
           Need more resources? Check out <a href="https://www.activeminds.org/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Active Minds</a> for student wellness support.
         </p>
