@@ -36,16 +36,19 @@ export const RESEARCH_STATS = [
     num: "30%",
     desc: "Improvement in memory retention after aerobic exercise, due to increased BDNF (brain-derived neurotrophic factor) production.",
     source: "— Journal of Physiology, 2018",
+    url: "https://pubmed.ncbi.nlm.nih.gov/29330855/"
   },
   {
     num: "20%",
     desc: "Higher reported focus and concentration levels in college students who exercise at least 3 times per week vs. sedentary peers.",
     source: "— American College of Sports Medicine",
+    url: "https://www.acsm.org/all-blog-posts/acsm-blog/acsm-blog/2021/04/22/the-benefits-of-exercise-for-college-students"
   },
   {
     num: "40%",
     desc: "Reduction in symptoms of anxiety and depression reported by students who maintain a regular fitness routine during semesters.",
     source: "— Harvard Medical School, 2021",
+    url: "https://www.health.harvard.edu/blog/can-exercise-help-treat-anxiety-2019102418096"
   },
 ];
 
@@ -55,6 +58,6 @@ export const WEEKLY_SCHEDULE = [
   { day: "Wed", morning: "Fitness: 12 PM — gym during lunch break (45 min)", evening: "Study: Group project work 7–9 PM" },
   { day: "Thu", morning: "Study: Heavy study day — readings and assignments", evening: "Fitness: 20-min evening walk + stretch" },
   { day: "Fri", morning: "Fitness: 8 AM — cardio or sport with friends", evening: "Study: Light review only — wrap up the week" },
-  { day: "Sat", morning: "Study: Deep work: papers, projects, reading (3–4 hrs)", evening: "Rest: Social time, hobbies, no screens after 9 PM" },
+  { day: "Sat", morning: "Study: Weekly wrap-up & organizing next week's tasks (1-2 hrs)", evening: "Rest: Social time, hobbies, no screens after 9 PM" },
   { day: "Sun", morning: "Rest: Full recovery — meal prep + light planning", evening: "Study: Preview next week's material (30 min only)" },
 ];

@@ -45,28 +45,35 @@ export default function Stats() {
           </>
         ) : (
           RESEARCH_STATS.map((stat, i) => (
-            <motion.div
+            <motion.a
               key={i}
+              href={stat.url}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="glass rounded-[2.5rem] p-12 transition-all duration-500 hover:border-green/30 group relative overflow-hidden"
+              whileHover={{ y: -5 }}
+              className="glass rounded-[2.5rem] p-12 transition-all duration-500 hover:border-green/30 group relative overflow-hidden block text-left"
             >
               {/* Hover background effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col">
                 <div className="font-display text-8xl text-off-white leading-none mb-6 group-hover:text-green transition-colors duration-500">
                   {stat.num}
                 </div>
-                <div className="text-[1rem] text-muted leading-relaxed mb-6 font-medium group-hover:text-off-white transition-colors duration-500">
+                <div className="text-[1rem] text-muted leading-relaxed mb-6 font-medium group-hover:text-off-white transition-colors duration-500 flex-grow">
                   {stat.desc}
                 </div>
-                <div className="inline-block text-[0.65rem] text-muted/40 italic uppercase tracking-[2px] border-t border-white/5 pt-4 w-full">
-                  Source: {stat.source}
+                <div className="flex items-center justify-between text-[0.65rem] text-muted/40 italic uppercase tracking-[2px] border-t border-white/5 pt-4 w-full group-hover:text-green/60 transition-colors">
+                  <span>Source: {stat.source}</span>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    View Study <span className="text-[10px]">↗</span>
+                  </span>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))
         )}
       </div>

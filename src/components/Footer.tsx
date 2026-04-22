@@ -9,7 +9,7 @@ export default function Footer() {
           Need more resources? Check out <a href="https://www.activeminds.org/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Active Minds</a> for student wellness support.
         </p>
         <div className="mt-8 pt-8 border-t border-white/5 text-[0.7rem] text-muted/50 uppercase tracking-[2px]">
-          © 2026 Mind & Muscle. All rights reserved.
+          2026 Mind & Muscle.
         </div>
       </div>
     </footer>
